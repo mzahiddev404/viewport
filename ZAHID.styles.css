@@ -1,6 +1,52 @@
-/* YOUR NAME GOES HERE */
+/* Muhammad Zahid */
 
 /* --------------- ADD CSS RESET TO THE FILE HERE --------------- */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section{
+	display: block;
+}
+body{
+	line-height: 1;
+}
+ol, ul{
+	list-style: none;
+}
+blockquote, q{
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after{
+	content: '';
+	content: none;
+}
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
 
 
@@ -33,6 +79,14 @@
 /* --------------- BEGIN USER PREFERS DARK COLOR SCHEME QUERY --------------- */
 
 /* CHANGE THE BODY'S BACKGROUND COLOR TO THE DARK GRAY IF THE USER PREFERS DARK MODE */
+@media (prefers-color-scheme: dark){
+    body{
+        background-color: var(--dark-gray);
+    }
+    main, header, footer{
+        color: var(--white);
+    }
+}
 
 /* --------------- END USER PREFERS DARK COLOR SCHEME QUERY --------------- */
 
@@ -91,12 +145,12 @@ footer .icon{
 
 /* ----- HANDLE PREFERS REDUCED MOTION FOR THE ICON ANIMATIONS ----- */
 /* --------------- BEGIN USER PREFERS REDUCED MOTION QUERY --------------- */
-    @-webkit-keyframes icon-animation {
-        0% { font-variation-settings: "TIME" 1; }
+@media (prefers-reduced-motion: reduce){
+    .icon{
+        -webkit-animation: none;
+                animation: none;
     }
-    @keyframes icon-animation {
-        0% { font-variation-settings: "TIME" 1; }
-    }
+}
 /* --------------- END USER PREFERS REDUCED MOTION QUERY --------------- */
 
 
@@ -150,182 +204,210 @@ img{
 
 /* ---------- SMALL SCREEN STYLES ---------- */
 /* --------------- BEGIN SMALL SCREEN SIZES --------------- */
-    /* header, footer{
-        background-color: var(--lime-green);
-        color: var(--dark-gray);
-    }
+@media screen and (min-width: 620px){
 
-    main{
-        display: grid;
-        grid-gap: 0.75em;
-        grid-template-columns: 1fr 1fr;
-        margin: 1em 0;
-    }
+    /* progressive enhancement: only do the grid layout when grid is supported */
+    @supports (display: grid){
 
-    section{
-        background-color: var(--yellow);
-        color: var(--dark-gray);
-        margin: 0;
-    }
+        header, footer{
+            background-color: var(--lime-green);
+            color: var(--dark-gray);
+        }
 
-    #one, #two, #seven, #eight{
-        grid-column: 1/3;
-    }
+        main{
+            display: grid;
+            grid-gap: 0.75em;
+            grid-template-columns: 1fr 1fr;
+            margin: 1em 0;
+        }
 
-    img{
-        width: 200px;
-        max-width: 200px;
-    } */
+        section{
+            background-color: var(--yellow);
+            color: var(--dark-gray);
+            margin: 0;
+        }
+
+        #one, #two, #seven, #eight{
+            grid-column: 1/3;
+        }
+
+        img{
+            width: 200px;
+            max-width: 200px;
+        }
+
+    }
+}
 /* --------------- END SMALL SCREEN SIZES --------------- */
 
 
 
 /* ---------- MEDIUM SCREEN STYLES ---------- */
 /* --------------- BEGIN MEDIUM SCREEN SIZES --------------- */
-    /* header, footer{
-        background-color: var(--black);
-        color: var(--white);
-    }   
+@media screen and (min-width: 900px){
 
-    main{
-        grid-template-columns: 1fr 1fr 1fr;
+    @supports (display: grid){
+
+        header, footer{
+            background-color: var(--black);
+            color: var(--white);
+        }   
+
+        main{
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        section{
+            background-color: var(--light-gray);
+        }
+
+        #one{
+            grid-column: 1/3;
+        }
+
+        #two{
+            grid-column: 3/4;
+            grid-row: 1/3;
+        }
+
+        #seven{
+            grid-column: 3/4;
+            grid-row: 3/5;
+        }
     }
-
-    section{
-        background-color: var(--light-gray);
-    }
-
-    #one{
-        grid-column: 1/3;
-    }
-
-    #two{
-        grid-column: 3/4;
-        grid-row: 1/3;
-    }
-
-    #seven{
-        grid-column: 3/4;
-        grid-row: 3/5;
-    } */
+}
 /* --------------- END MEDIUM SCREEN SIZES --------------- */
 
 
 
 /* ---------- LARGE SCREEN STYLES ---------- */
 /* --------------- BEGIN LARGE SCREEN SIZES --------------- */
-    /* header, footer{
-        background-color: var(--lime-green);
-        color: var(--dark-gray);
-    }
+@media screen and (min-width: 1200px){
 
-    h1, h2{
-        display: inline-block;
-    }
+    @supports (display: grid){
 
-    section{
-        background-color: var(--blue);
-    }
+        header, footer{
+            background-color: var(--lime-green);
+            color: var(--dark-gray);
+        }
 
-    main{
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
+        h1, h2{
+            display: inline-block;
+        }
 
-    #one, #seven{
-        grid-column: 1/3;
-    }
+        section{
+            background-color: var(--blue);
+        }
 
-    #two{
-        grid-row: 1/2;
-    }
+        main{
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
 
-    #two, #eight{
-        grid-column: 3/5;
-    }
+        #one, #seven{
+            grid-column: 1/3;
+        }
 
-    #seven, #eight{
-        grid-row: 3/4;
-    } */
+        #two{
+            grid-row: 1/2;
+        }
+
+        #two, #eight{
+            grid-column: 3/5;
+        }
+
+        #seven, #eight{
+            grid-row: 3/4;
+        }
+    }
+}
 /* --------------- END LARGE SCREEN SIZES --------------- */
 
 
 
 /* ---------- ADJUSTING RESPONSIVE IMAGE SIZE ---------- */
 /* --------------- BEGIN RESPONSIVE IMAGE ADJUST SIZES --------------- */
-    /* img{
+@media screen and (min-width: 1200px){
+    img{
         width: 300px;
         max-width: 300px;
-    } */
+    }
+}
 /* --------------- END RESPONSIVE IMAGE ADJUST SIZES --------------- */
 
 
 
 /* ---------- EXTRA LARGE SCREEN STYLES ---------- */
 /* --------------- BEGIN EXTRA LARGE SCREEN SIZES --------------- */
-    /* header, footer{
-        background-color: var(--orange);
-        padding-left: 5%;
-    }
+@media screen and (min-width: 1380px){
 
-    main{
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        margin: 1em auto;
-    }
+    @supports (display: grid){
 
-    section{
-        background-color: var(--blue-gray);
-        color: var(--dark-gray);
-    }
+        header, footer{
+            background-color: var(--orange);
+            padding-left: 5%;
+        }
 
-    #one, #two{
-        grid-row: 1/3;
-    }
+        main{
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            margin: 1em auto;
+        }
 
-    #one{
-        grid-column: 1/5;
-    }
+        section{
+            background-color: var(--blue-gray);
+            color: var(--dark-gray);
+        }
 
-    #two{
-        grid-column: 5/9;
-    }
+        #one, #two{
+            grid-row: 1/3;
+        }
 
-    #three, #four{
-        grid-column: 9/12;
-    }
+        #one{
+            grid-column: 1/5;
+        }
 
-    #three{
-        grid-row: 1/2;
-    }
+        #two{
+            grid-column: 5/9;
+        }
 
-    #four{
-        grid-row: 2/3;
-    }
+        #three, #four{
+            grid-column: 9/12;
+        }
 
-    #five, #six{
-        grid-column: 1/4;
-    }
+        #three{
+            grid-row: 1/2;
+        }
 
-    #five{
-        grid-row: 3/4;
-    }
+        #four{
+            grid-row: 2/3;
+        }
 
-    #six{
-        grid-row: 4/5;
-    }
+        #five, #six{
+            grid-column: 1/4;
+        }
 
-    #seven, #eight{
-        grid-row: 3/5;
-    }
+        #five{
+            grid-row: 3/4;
+        }
 
-    #seven{
-        grid-column: 4/8;
-    }
+        #six{
+            grid-row: 4/5;
+        }
 
-    #eight{
-        grid-column: 8/12;
-    }
+        #seven, #eight{
+            grid-row: 3/5;
+        }
 
-    #three p, #four p, #five p, #six p{
-        padding-top: 2em;
-    } */
+        #seven{
+            grid-column: 4/8;
+        }
+
+        #eight{
+            grid-column: 8/12;
+        }
+
+        #three p, #four p, #five p, #six p{
+            padding-top: 2em;
+        }
+    }
+}
 /* --------------- END EXTRA LARGE SCREEN SIZES --------------- */
